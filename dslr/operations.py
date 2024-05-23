@@ -29,7 +29,7 @@ def create_database(*, dbname: str, template: Optional[str] = None):
     """
     if template:
         exec_sql(
-            sql.SQL("CREATE DATABASE {} TEMPLATE {}").format(
+            sql.SQL("CREATE DATABASE {} TEMPLATE {} STRATEGY FILE_COPY").format(
                 sql.Identifier(dbname),
                 sql.Identifier(template),
             )
